@@ -57,7 +57,7 @@ const chain =await createStuffDocumentsChain({
 })
 
 const response= await chain.invoke({
-    input:"whatb is Language model?",
+    input:"what is Language model?",
     context:[docA,docB]
 })
 

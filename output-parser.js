@@ -12,10 +12,6 @@ const model = new ChatOpenAI({
     openAIApiKey:process.env.OPENAI_API_KEY,
 })
 
-// const prompt = ChatPromptTemplate.fromTemplate(
-//     "You are a comidian.Tell a joke base on the following word {input}."
-// ) prompt template .............................................................................................................................................
-
 //output parser for string
 const callStringOutputParser=async ()=>{
     const parser= new StringOutputParser()
@@ -36,7 +32,7 @@ const callListOutputParser=async ()=>{
     const prompt = ChatPromptTemplate.fromTemplate(
      `Provide 5 synonyms ,separated by commas,for the followinf word {word}`
     )
-    const chain = prompt.pipe(model)
+    const chain = prompt.pipe(model).pipe(outputParser)
     return await chain.invoke({
         word:"Mother",
 

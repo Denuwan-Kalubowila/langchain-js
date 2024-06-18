@@ -1,8 +1,5 @@
 import { ChatOpenAI } from "@langchain/openai";
 import {ChatPromptTemplate} from "@langchain/core/prompts"
-
-import {Document} from "@langchain/core/documents"
-
 import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
 
 import { CheerioWebBaseLoader } from "@langchain/community/document_loaders/web/cheerio";
@@ -24,7 +21,6 @@ const prompt = ChatPromptTemplate.fromTemplate(
     Context:{context}
     Question:{input}`
 )
-
 // const chain =prompt.pipe(model);
 const chain =await createStuffDocumentsChain({
     llm:model,
@@ -32,7 +28,7 @@ const chain =await createStuffDocumentsChain({
 })
 
 const response= await chain.invoke({
-    input:"what is the reason most famous in ratnapura?",
+    input:"what is the reason most in ratnapura?",
     context:datadoc
 })
 

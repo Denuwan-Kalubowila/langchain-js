@@ -38,7 +38,6 @@ const spliter= new RecursiveCharacterTextSplitter({
     chunkOverlap:20,
 })
 const splitDoc=await spliter.splitDocuments([docA])
-console.log(splitDoc)
 
 const embedding = new OpenAIEmbeddings();
 const vectorstore = await MemoryVectorStore.fromDocuments(splitDoc, embedding);
@@ -91,7 +90,7 @@ const chat_history=[
 
 const response = await retrievalChain.invoke({
     chat_history: chat_history,
-    input: "can u explain more about LCEL as i am student.",
+    input: "your input",
 });
   
 console.log(response);

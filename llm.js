@@ -11,9 +11,6 @@ const model = new ChatOpenAI({
 })
 
 const response= await model.invoke("write a sentense for  Sri lanka")
-
-// for await (const chunck of response){
-//     console.log(chunck?.content)
-// }
-
 console.log(response)
+
+
