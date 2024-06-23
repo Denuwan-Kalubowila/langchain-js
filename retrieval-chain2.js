@@ -50,20 +50,20 @@ const spliter= new RecursiveCharacterTextSplitter({
 const splitDoc=await spliter.splitDocuments([docA])
 console.log(splitDoc)
 
-const embedding = new OpenAIEmbeddings();
-const vectorstore = await MemoryVectorStore.fromDocuments(splitDoc, embedding);
+// const embedding = new OpenAIEmbeddings();
+// const vectorstore = await MemoryVectorStore.fromDocuments(splitDoc, embedding);
 
-const retriever = vectorstore.asRetriever({
-    k: 2,
-});
+// const retriever = vectorstore.asRetriever({
+//     k: 2,
+// });
 
-const retrievalChain = await createRetrievalChain({
-    combineDocsChain: chain, // Ensure `chain` is defined and available
-    retriever,
-});
+// const retrievalChain = await createRetrievalChain({
+//     combineDocsChain: chain, // Ensure `chain` is defined and available
+//     retriever,
+// });
 
-const response = await retrievalChain.invoke({
-    input: "What is LCEL?",
-});
+// const response = await retrievalChain.invoke({
+//     input: "What is LCEL?",
+// });
   
-console.log(response);
+// console.log(response);
